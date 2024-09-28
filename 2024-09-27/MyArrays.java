@@ -4,14 +4,25 @@ public class MyArrays{
 	int[] test1 = {1,2,3,4,5};
 	int[] test2 = {};
 	int[] test3 = {100,10,1,0,-5};
+  int[] test4 = {0,0,0,0,0,0,0,0};
+  int[] test5 = {-5,-3,2,1,23,4,5,12345};
 // aryToString test cases
 
 	System.out.println(aryToString(test1));
 	System.out.println(aryToString(test2));
 	System.out.println(aryToString(test3));
+  System.out.println(aryToString(test4));
+	System.out.println(aryToString(test5));
+
+
 
 // returnCopy test cases
 	System.out.println("actual: " + aryToString(test1) + " result: " + aryToString(returnCopy(test1)));
+  System.out.println("actual: " + aryToString(test2) + " result: " + aryToString(returnCopy(test2)));
+	System.out.println("actual: " + aryToString(test3) + " result: " + aryToString(returnCopy(test3)));
+  System.out.println("actual: " + aryToString(test4) + " result: " + aryToString(returnCopy(test4)));
+  System.out.println("actual: " + aryToString(test5) + " result: " + aryToString(returnCopy(test5)));
+
 
   }
 
