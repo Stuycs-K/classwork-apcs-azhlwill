@@ -1,4 +1,5 @@
-public class MyArrays{
+public class MyArrays
+  {
   public static void main(String[] args){
 
 	int[] test1 = {1,2,3,4,5};
@@ -27,7 +28,10 @@ public class MyArrays{
 
   System.out.println(aryToString(concatArray(test1, test2)));
   System.out.println(aryToString(concatArray(test1, test3)));
-
+  System.out.println(aryToString(concatArray(test1, test4)));
+  System.out.println(aryToString(concatArray(test1, test5)));
+  System.out.println(aryToString(concatArray(test2, test3)));
+  System.out.println(aryToString(concatArray(test2, test4)));
   }
 
 // arrToString
