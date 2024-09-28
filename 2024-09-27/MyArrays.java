@@ -2,36 +2,35 @@ public class MyArrays
   {
   public static void main(String[] args){
 
-	int[] test1 = {1,2,3,4,5};
-	int[] test2 = {};
-	int[] test3 = {100,10,1,0,-5};
-  int[] test4 = {0,0,0,0,0,0,0,0};
-  int[] test5 = {-5,-3,2,1,23,4,5,12345};
-// aryToString test cases
+    int[] test1 = {1,2,3,4,5};
+    int[] test2 = {};
+    int[] test3 = {100,10,1,0,-5};
+    int[] test4 = {0,0,0,0,0,0,0,0};
+    int[] test5 = {-5,-3,2,1,23,4,5,12345};
 
-	System.out.println(aryToString(test1));
-	System.out.println(aryToString(test2));
-	System.out.println(aryToString(test3));
-  System.out.println(aryToString(test4));
-	System.out.println(aryToString(test5));
+  // aryToString test cases
 
+    System.out.println(aryToString(test1));
+    System.out.println(aryToString(test2));
+    System.out.println(aryToString(test3));
+    System.out.println(aryToString(test4));
+    System.out.println(aryToString(test5));
 
+  // returnCopy test cases
+    System.out.println("actual: " + aryToString(test1) + " result: " + aryToString(returnCopy(test1)));
+    System.out.println("actual: " + aryToString(test2) + " result: " + aryToString(returnCopy(test2)));
+    System.out.println("actual: " + aryToString(test3) + " result: " + aryToString(returnCopy(test3)));
+    System.out.println("actual: " + aryToString(test4) + " result: " + aryToString(returnCopy(test4)));
+    System.out.println("actual: " + aryToString(test5) + " result: " + aryToString(returnCopy(test5)));
 
-// returnCopy test cases
-	System.out.println("actual: " + aryToString(test1) + " result: " + aryToString(returnCopy(test1)));
-  System.out.println("actual: " + aryToString(test2) + " result: " + aryToString(returnCopy(test2)));
-	System.out.println("actual: " + aryToString(test3) + " result: " + aryToString(returnCopy(test3)));
-  System.out.println("actual: " + aryToString(test4) + " result: " + aryToString(returnCopy(test4)));
-  System.out.println("actual: " + aryToString(test5) + " result: " + aryToString(returnCopy(test5)));
+  // concatArray test cases
 
-// concatArray test cases
-
-  System.out.println(aryToString(concatArray(test1, test2)));
-  System.out.println(aryToString(concatArray(test1, test3)));
-  System.out.println(aryToString(concatArray(test1, test4)));
-  System.out.println(aryToString(concatArray(test1, test5)));
-  System.out.println(aryToString(concatArray(test2, test3)));
-  System.out.println(aryToString(concatArray(test2, test4)));
+    System.out.println(aryToString(concatArray(test1, test2)));
+    System.out.println(aryToString(concatArray(test1, test3)));
+    System.out.println(aryToString(concatArray(test1, test4)));
+    System.out.println(aryToString(concatArray(test1, test5)));
+    System.out.println(aryToString(concatArray(test2, test3)));
+    System.out.println(aryToString(concatArray(test2, test4)));
   }
 
 // arrToString
@@ -40,9 +39,9 @@ public class MyArrays
 
 	for (int i = 0; i < nums.length; i++)
 	{
-  	if (i == nums.length - 1)
+  	if (i == nums.length - 1) // if last index
   	{
-    	empty = empty + nums[i];
+    	empty = empty + nums[i]; // dont put the comma space
   	}
   	else
   	{
@@ -50,17 +49,17 @@ public class MyArrays
   	}
 	}
 
-	return empty + "]";
+	return empty + "]"; // close the string with a bracket
   }
 
 
   //Write a function that returns a new array with the same values as the parameter ary.
   public static int[] returnCopy(int[]ary){
-	int[] newArr = new int[ary.length];
+	int[] newArr = new int[ary.length]; // initializes array with the same length
 
 	for (int i = 0; i < ary.length; i++)
 	{
-  	newArr[i] = ary[i];
+  	newArr[i] = ary[i]; // replaces each value 
 	}
 
 	return newArr;
@@ -74,21 +73,19 @@ public class MyArrays
     int length1 = ary1.length;
     int length2 = ary2.length;
 
-    int[] returnAry = new int[length1 + length2];
+    int[] returnAry = new int[length1 + length2]; // initialize new array with length of old combined
 
-    int currentSpot = 0;
-
+    int currentSpot = 0; // to track returnAry index
+    
     for (int i = 0; i < length1; i++)
     {
-      returnAry[currentSpot] = ary1[i];
-      currentSpot++;
-      
+      returnAry[currentSpot] = ary1[i]; // replace the value
+      currentSpot++; // go up an index on returnAry
     }
-
     for (int x = 0; x < length2; x++)
     {
-      returnAry[currentSpot] = ary2[x];
-      currentSpot++;
+      returnAry[currentSpot] = ary2[x]; // replace the value
+      currentSpot++; // go up an index on returnAry
     }
 
     return returnAry;
