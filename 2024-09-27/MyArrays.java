@@ -1,45 +1,50 @@
 public class MyArrays{
   public static void main(String[] args){
 
-// 
-    int[] test1 = {1,2,3,4,5};
-    System.out.println(aryToString(test1));
-    int[] test2 = {};
-    System.out.println(aryToString(test2));
-    int[] test3 = {100,10,1,0,-5};
-    System.out.println(aryToString(test3));
+	int[] test1 = {1,2,3,4,5};
+	int[] test2 = {};
+	int[] test3 = {100,10,1,0,-5};
+// aryToString test cases
+
+	System.out.println(aryToString(test1));
+	System.out.println(aryToString(test2));
+	System.out.println(aryToString(test3));
+
+// returnCopy test cases
+	System.out.println("actual: " + aryToString(test1) + " result: " + aryToString(returnCopy(test1)));
+
   }
 
 // arrToString
   public static String aryToString(int[] nums){
-    String empty = "[";
+	String empty = "[";
 
-    for (int i = 0; i < nums.length; i++)
-    {
-      if (i == nums.length - 1)
-      {
-        empty = empty + nums[i];
-      }
-      else
-      {
-        empty = empty + (nums[i] + ", ");
-      }
-    }
+	for (int i = 0; i < nums.length; i++)
+	{
+  	if (i == nums.length - 1)
+  	{
+    	empty = empty + nums[i];
+  	}
+  	else
+  	{
+    	empty = empty + (nums[i] + ", ");
+  	}
+	}
 
-    return empty + "]";
+	return empty + "]";
   }
 
-/*
+
   //Write a function that returns a new array with the same values as the parameter ary.
   public static int[] returnCopy(int[]ary){
-    int[] newArr = new int[ary.length];
+	int[] newArr = new int[ary.length];
 
-    for (int i = 0; i < ary.length; i++)
-    {
-      newArr[i] = ary[i];
-    }
+	for (int i = 0; i < ary.length; i++)
+	{
+  	newArr[i] = ary[i];
+	}
 
-    return newArr;
+	return newArr;
   }
 
   //Write a function that returns a new array, that contains all of the values of ary1 followed by all of the values of ary2.
