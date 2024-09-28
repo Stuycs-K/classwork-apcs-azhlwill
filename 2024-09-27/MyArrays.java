@@ -23,6 +23,10 @@ public class MyArrays{
   System.out.println("actual: " + aryToString(test4) + " result: " + aryToString(returnCopy(test4)));
   System.out.println("actual: " + aryToString(test5) + " result: " + aryToString(returnCopy(test5)));
 
+// concatArray test cases
+
+  System.out.println(aryToString(concatArray(test1, test2)));
+  System.out.println(aryToString(concatArray(test1, test3)));
 
   }
 
@@ -61,8 +65,28 @@ public class MyArrays{
   //Write a function that returns a new array, that contains all of the values of ary1 followed by all of the values of ary2.
   //The order of the values should remain the same.
 
-/*
-  public static int[] concatArray(int[]ary1,int[]ary2){
 
-*/
+  public static int[] concatArray(int[]ary1,int[]ary2){
+    int length1 = ary1.length;
+    int length2 = ary2.length;
+
+    int[] returnAry = new int[length1 + length2];
+
+    int currentSpot = 0;
+
+    for (int i = 0; i < length1; i++)
+    {
+      returnAry[currentSpot] = ary1[i];
+      currentSpot++;
+      
+    }
+
+    for (int x = 0; x < length2; x++)
+    {
+      returnAry[currentSpot] = ary2[x];
+      currentSpot++;
+    }
+
+    return returnAry;
   }
+}
