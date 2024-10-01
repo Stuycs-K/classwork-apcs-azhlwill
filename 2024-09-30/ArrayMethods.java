@@ -5,24 +5,30 @@ public class ArrayMethods{
   public static void main(String[] args){
     int[] test1 = new int[] {1,2,3,4,5,6};
     int[][] test2 = new int[][] {{2,3,4}, {5,6,7}, {8,9,10}};
+    int[][] test3 = new int[3][3];
 
     System.out.println(arrToString(test1));
-
     System.out.println(arrToString(test2));
+    System.out.println(arrToString(test3));
 
   }
 
   public static String arrToString(int[] nums){
-    String s = "[";
-    for (int i = 0; i < nums.length; i++){
-      s += nums[i];
-      if (i < nums.length -1){
-        s += ", ";
-      }
+	String empty = "[";
 
-    }
-    s += "]";
-    return s;
+	for (int i = 0; i < nums.length; i++)
+	{
+        if (i == nums.length - 1) // if last index
+        {
+            empty = empty + nums[i]; // dont put the comma space
+        }
+        else
+        {
+            empty = empty + (nums[i] + ", ");
+        }
+	}
+
+	return empty + "]"; // close the string with a bracket
   }
 
   //3. Write arrToString, with a 2D array parameter.
@@ -34,17 +40,19 @@ public class ArrayMethods{
     * previous code, but you should NOT duplicate that code. (Don't
 copy/paste or retype it)
     */
+
+   
   public static String arrToString(int[][]ary){
     String empty = "[";
-    for(int i = 0; i < ary.length; i++){
-      empty += arrToString(ary[i]);
 
+    for (int i = 0; i < ary.length; i++)
+    {
+        empty = empty + (arrToString(ary[i]) + ", ");  
     }
-    empty += "]";
-
-
-    return empty;
+    
+    return empty.substring(0,empty.length()-2) + "]";
   }
+
 
   /*Return the sum of all of the values in the 2D array
   public static int arr2DSum(int[][]nums){
