@@ -11,7 +11,7 @@ public class ArrayMethods{
     int[][] test6 = new int[][] {{1,2,3}, {4,5,6}};
 
     int[][] test7 = new int[][] {{-1,-1,-3}, {-5, -5, -1}};
-    int[][] test8 = new int[][] {{-1,-1,-3}, {-5, -5, -1}, {-1, -1, -1}, {-1, -1, -1}};
+    int[][] test8 = new int[][] {{-1,-1,-3}, {-5, -5, -1}, {-1, -1, -1}, {-1, -1, -1, -2}};
 
 
     System.out.println(arrToString(test1));
