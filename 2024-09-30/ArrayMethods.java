@@ -35,7 +35,20 @@ public class ArrayMethods{
     System.out.println(arrToString(copy(test9)));
     System.out.println(arrToString(copy(test10)));
 
+////////////////
+    System.out.println("Testing if changing original changes copy");
 
+    String copy10 = arrToString(copy(test10));
+
+    System.out.println("Before original change: " + copy10);
+    
+    test10 = new int[][] {{0,0}, {1,1}, {2,2}};
+
+    System.out.println("New original: " + arrToString(test10));
+    System.out.println("Old copy: " + copy10);
+
+    System.out.println("Did changing the original change the copy: " + arrToString(test10).equals(copy10));
+////////////////
 
 
 
