@@ -13,6 +13,9 @@ public class ArrayMethods{
     int[][] test7 = new int[][] {{-1,-1,-3}, {-5, -5, -1}};
     int[][] test8 = new int[][] {{-1,-1,-3}, {-5, -5, -1}, {-1, -1, -1}, {-1, -1, -1, -2}};
 
+    int[][] test9 = new int[4][4];
+    int[][] test10 = new int[][] {{1,2}, {7,8}, {123,456}};
+
 
     System.out.println(arrToString(test1));
     System.out.println(arrToString(test2));
@@ -28,6 +31,13 @@ public class ArrayMethods{
 
     System.out.println(arrToString(replaceNegative(test7)));
     System.out.println(arrToString(replaceNegative(test8)));
+    
+    System.out.println(arrToString(copy(test9)));
+    System.out.println(arrToString(copy(test10)));
+
+
+
+
 
 
   }
@@ -127,8 +137,28 @@ public class ArrayMethods{
   //DO NOT use any built in methods that "copy" an array.
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
-  public static int[][] copy(int[][] nums){
-    return null;//placeholder so it compiles
+  public static int[][] copy(int[][] nums) {
+    int[][] copyArray = new int[nums.length][];
+
+    for (int i = 0; i < nums.length; i++) 
+    {
+      copyArray[i] = copyHelper(nums[i]); 
+    }
+
+    return copyArray; 
+  }
+
+  public static int[] copyHelper(int[] oneDimAry) {
+
+    int[] oneDimAryCopy = new int[oneDimAry.length];
+
+
+    for (int i = 0; i < oneDimAry.length; i++) 
+    {
+      oneDimAryCopy[i] = oneDimAry[i];
+    }
+
+    return oneDimAry; 
   }
 
 
