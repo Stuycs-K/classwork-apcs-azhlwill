@@ -9,33 +9,30 @@ public class ArrayMethods{
     int[][] test4 = new int[][] {{5}, {5}, {5}};
     int[][] test5 = new int[][] {{1,1,1}, {2,2,2}, {3,3,3}};
     int[][] test6 = new int[][] {{1,2,3}, {4,5,6}};
-
     int[][] test7 = new int[][] {{-1,-1,-3}, {-5, -5, -1}};
     int[][] test8 = new int[][] {{-1,-1,-3}, {-5, -5, -1}, {-1, -1, -1}, {-1, -1, -1, -2}};
-
     int[][] test9 = new int[4][4];
     int[][] test10 = new int[][] {{1,2}, {7,8}, {123,456}};
-
-
+// arrToString
     System.out.println(arrToString(test1));
     System.out.println(arrToString(test2));
     System.out.println(arrToString(test3));
-
+// arr2DSum
     System.out.println(arr2DSum(test2));
     System.out.println(arr2DSum(test3));
     System.out.println(arr2DSum(test4));
     System.out.println(arr2DSum(test5));
-
+// swapRC
     System.out.println(arrToString(swapRC(test5)));
     System.out.println(arrToString(swapRC(test6)));
-
+// replaceNegative
     System.out.println(arrToString(replaceNegative(test7)));
     System.out.println(arrToString(replaceNegative(test8)));
-    
+// copy
     System.out.println(arrToString(copy(test9)));
     System.out.println(arrToString(copy(test10)));
 
-////////////////
+//////////////// change original
     System.out.println("Testing if changing original changes copy");
 
     String copy10 = arrToString(copy(test10));
@@ -49,10 +46,6 @@ public class ArrayMethods{
 
     System.out.println("Did changing the original change the copy: " + arrToString(test10).equals(copy10));
 ////////////////
-
-
-
-
   }
 
 // 1d array
@@ -81,10 +74,10 @@ public class ArrayMethods{
 
     for (int i = 0; i < ary.length; i++)
     {
-        empty = empty + (arrToString(ary[i]) + ", ");
+        empty = empty + (arrToString(ary[i]) + ", "); // add the 1-dim array and comma space
     }
 
-    return empty.substring(0,empty.length()-2) + "]";
+    return empty.substring(0,empty.length()-2) + "]"; // remove end comma space and add bracket
   }
 
 
@@ -92,9 +85,9 @@ public class ArrayMethods{
   public static int arr2DSum(int[][]nums){
     int sum = 0;
 
-    for (int i = 0; i < nums.length; i++)
+    for (int i = 0; i < nums.length; i++) // goes into each 1-dim array
     {
-        for (int x = 0; x < nums[i].length; x++)
+        for (int x = 0; x < nums[i].length; x++) // nested loop to add each value from 1-dim array
         {
             sum += nums[i][x];
         }
@@ -105,66 +98,64 @@ public class ArrayMethods{
 
 // rotate array
   public static int[][] swapRC(int[][]nums){
-    int[][] empty = new int[nums[0].length][nums.length];
+    int[][] empty = new int[nums[0].length][nums.length]; // nums[0].length first to get the 1-dim length to be the 2d length
 
     for (int i = 0; i < nums.length; i++)
     {
         for (int x = 0; x < nums[i].length; x++)
         {
-            empty[x][i] = nums[i][x];
+            empty[x][i] = nums[i][x]; //swap it
         }
     }
     return empty;
   }
 
-  //3. Modify a given 2D array of integer as follows:
-  //Replace all the negative values:
-  //-When the row number is the same as the column number replace
-  //that negative with the value 1
-  //-All other negatives replace with 0
+//3. Modify a given 2D array of integer as follows:
+//Replace all the negative values:
+//-When the row number is the same as the column number replace
+//that negative with the value 1
+//-All other negatives replace with 0
   public static int[][] replaceNegative(int[][] vals)
   {
     for (int i = 0; i < vals.length; i++)
     {
       for (int x = 0; x < vals[i].length; x++)
       {
-        if (x == i && vals[i][x] < 0)
+        if (x == i && vals[i][x] < 0) // same col + row and negative
         {
           vals[i][x] = 1;
         }
-        else if (vals[i][x] < 0)
+        else if (vals[i][x] < 0) // negative but diff col + row
         {
           vals[i][x] = 0;
         }
         else
         {
-          vals[i][x] = vals[i][x];
+          vals[i][x] = vals[i][x]; // leave it
         }
       }
     }
     return vals;
   }
-
-  //4. Make a copy of the given 2d array.
-  //When testing : make sure that changing the original does NOT change the copy.
-  //DO NOT use any built in methods that "copy" an array.
-  //You SHOULD write a helper method for this.
-  //If you don't see a good way to do that, you should stop and look at prior methods.
+//4. Make a copy of the given 2d array.
+//When testing : make sure that changing the original does NOT change the copy.
+//DO NOT use any built in methods that "copy" an array.
+//You SHOULD write a helper method for this.
+//If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums) {
     int[][] copyArray = new int[nums.length][];
 
     for (int i = 0; i < nums.length; i++) 
     {
-      copyArray[i] = copyHelper(nums[i]); 
+      copyArray[i] = copyHelper(nums[i]); // copy the 1d array into the 2d array
     }
 
     return copyArray; 
   }
-
-  public static int[] copyHelper(int[] oneDimAry) {
+// helper to copy the 1-dim array
+  public static int[] copyHelper(int[] oneDimAry) { // use int[] oneDimArray since you are giving the function a 1d array out of the 2d one
 
     int[] oneDimAryCopy = new int[oneDimAry.length];
-
 
     for (int i = 0; i < oneDimAry.length; i++) 
     {
@@ -173,6 +164,4 @@ public class ArrayMethods{
 
     return oneDimAry; 
   }
-
-
 }
