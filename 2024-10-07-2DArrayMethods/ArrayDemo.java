@@ -2,8 +2,13 @@ import java.util.Arrays;
 public class ArrayDemo{
   public static void main(String[]args){
     int[] test1 = new int[] {1,2,3,4,5,6};
+    int[][] test2 = new int[][] {{1,2,3}, {4,5,6}, {7,8,9}};
+
 
     System.out.println(Arrays.toString(test1).equals(arrToString(test1)));
+    System.out.println(arrToString(test2));
+
+
     //write your tests here!
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
@@ -11,7 +16,7 @@ public class ArrayDemo{
 
   }
 
-  //0. Include your prior methods to help you print a 1D/2D array of ints.
+// 0.
   public static String arrToString(int[]ary){
     String empty = "[";
 
@@ -30,12 +35,18 @@ public class ArrayDemo{
 	return empty + "]"; // close the string with a bracket
   }
 
-  //The name of different methods can be the same,
-  //as long as the parameters are different! (type and/or quantity must be different)
-  //Pro tip: you should be using your 1D arrToString in this method!
+// 1.
   public static String arrToString(int[][]ary){
-    return "";
+    String empty = "[";
+
+    for (int i = 0; i < ary.length; i++)
+    {
+        empty = empty + (arrToString(ary[i]) + ", "); 
+    }
+    return empty.substring(0,empty.length()-2) + "]"; 
   }
+
+
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
