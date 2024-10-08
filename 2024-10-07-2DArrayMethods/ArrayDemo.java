@@ -6,6 +6,8 @@ public class ArrayDemo{
     int[][] test3 = new int[][] {{0,0,1},{1,1,1},{0,1,0}};
     int[][] test4 = new int[][] {{1,1,1}, {1,1,1}, {1,1,1}};
     int[][] test5 = new int[][] {{1,2,3}, {1,2,3}};
+    int[][] test6 = new int[][] {{-1,-1,-3}, {-5, -5, -1}};
+    int[][] test7 = new int[][] {{-1,-1,-3}, {5, 5, -1}, {-1, -1, -1}, {-1, -1, -1, -2}};
 
 
     System.out.println(Arrays.toString(test1).equals(arrToString(test1)));
@@ -15,6 +17,8 @@ public class ArrayDemo{
     System.out.println(arr2DSum(test3)); // 5
     System.out.println(arr2DSum(test4)); // 0
     System.out.println(arr2DSum(test5)); // 12
+    System.out.println(arrToString(replaceNegative(test6)));
+    System.out.println(arrToString(replaceNegative(test7)));
 
 
 
@@ -22,7 +26,6 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
-
   }
 
 // 0.
@@ -93,8 +96,26 @@ public class ArrayDemo{
   //-When the row number is the same as the column number replace
   //that negative with the value 1
   //-All other negatives replace with 0
-  public static void replaceNegative(int[][] vals){
-
+  public static int[][] replaceNegative(int[][] vals){
+    for (int i = 0; i < vals.length; i++)
+    {
+      for (int x = 0; x < vals[i].length; x++)
+      {
+        if (x == i && vals[i][x] < 0) // same col + row and negative
+        {
+          vals[i][x] = 1;
+        }
+        else if (vals[i][x] < 0) // negative but diff col + row
+        {
+          vals[i][x] = 0;
+        }
+        else
+        {
+          vals[i][x] = vals[i][x];
+        }
+      }
+    }
+    return vals;
   }
 
   //4. Make a copy of the given 2d array.
