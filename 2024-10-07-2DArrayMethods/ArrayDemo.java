@@ -10,6 +10,8 @@ public class ArrayDemo{
     int[][] test7 = new int[][] {{-1,-1,-3}, {5, 5, -1}, {-1, -1, -1}, {-1, -1, -1, -2}};
     int[][] test8 = new int[4][4];
     int[][] test9 = new int[][] {{1,2}, {7,8}, {123,456}};
+    int[][] test10 = new int[][] {{1,1,1}, {2,2,2}, {3,3,3}};
+    int[][] test11 = new int[][] {{1,2,3}, {4,5,6}};
 
 
     System.out.println(Arrays.toString(test1).equals(arrToString(test1)));
@@ -23,6 +25,8 @@ public class ArrayDemo{
     System.out.println(arrToString(replaceNegative(test7)));
     System.out.println(arrToString(copy(test8)));
     System.out.println(arrToString(copy(test9)));
+    System.out.println(arrToString(swapRC(test10)));
+    System.out.println(arrToString(swapRC(test11)));
 
 
 
@@ -155,7 +159,16 @@ public class ArrayDemo{
   //   You may assume the array is rectangular and neither rows nor cols is 0.
   //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int[][] empty = new int[nums[0].length][nums.length]; // swap lengths
+
+    for (int i = 0; i < nums.length; i++)
+    {
+        for (int x = 0; x < nums[i].length; x++)
+        {
+            empty[x][i] = nums[i][x]; //swap
+        }
+    }
+    return empty;
   }
 
   //6. Make an HTML table by putting a table tag around the entire 2d array,
