@@ -17,7 +17,7 @@ public class ArrayDemo{
 
 
     System.out.println(Arrays.toString(test1).equals(arrToString(test1)));
-    System.out.println(arrToString(test2));
+    System.out.println(Arrays.deepToString(test2).equals(arrToString(test2)));
     System.out.println(countZeros2D(test3)); // 4
     System.out.println(countZeros2D(test4)); // 0
     System.out.println(arr2DSum(test3)); // 5
@@ -29,30 +29,24 @@ public class ArrayDemo{
     System.out.println(arrToString(copy(test9)));
     System.out.println(arrToString(swapRC(test10)));
     System.out.println(arrToString(swapRC(test11)));
-    System.out.println(htmlTable(test12));
-    System.out.println(htmlTable(test13));
-
-
-    //write your tests here!
-    //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
-    //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
-    //do not use any other Arrays.method()
+    System.out.println(htmlTable(test12)); // <table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>
+    System.out.println(htmlTable(test13)); // <table><tr><td>0</td><td>0</td></tr></table>
   }
 
 // 0.
   public static String arrToString(int[]ary){
     String empty = "[";
 
-	for (int i = 0; i < ary.length; i++)
-	{
-        if (i == ary.length - 1) 
-        {
-            empty = empty + ary[i]; 
-        }
-        else
-        {
-            empty = empty + (ary[i] + ", ");
-        }
+    for (int i = 0; i < ary.length; i++)
+    {
+      if (i == ary.length - 1) 
+      {
+        empty = empty + ary[i]; 
+      }
+      else
+      {
+        empty = empty + (ary[i] + ", ");
+      }
 	}
 
 	return empty + "]"; 
@@ -68,8 +62,6 @@ public class ArrayDemo{
     }
     return empty.substring(0,empty.length()-2) + "]"; 
   }
-
-
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
