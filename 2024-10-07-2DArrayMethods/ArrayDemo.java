@@ -5,12 +5,17 @@ public class ArrayDemo{
     int[][] test2 = new int[][] {{1,2,3}, {4,5,6}, {7,8,9}};
     int[][] test3 = new int[][] {{0,0,1},{1,1,1},{0,1,0}};
     int[][] test4 = new int[][] {{1,1,1}, {1,1,1}, {1,1,1}};
+    int[][] test5 = new int[][] {{1,2,3}, {1,2,3}};
 
 
     System.out.println(Arrays.toString(test1).equals(arrToString(test1)));
     System.out.println(arrToString(test2));
     System.out.println(countZeros2D(test3)); // 4
     System.out.println(countZeros2D(test4)); // 0
+    System.out.println(arr2DSum(test3)); // 5
+    System.out.println(arr2DSum(test4)); // 0
+    System.out.println(arr2DSum(test5)); // 12
+
 
 
     //write your tests here!
@@ -72,7 +77,15 @@ public class ArrayDemo{
   /*Return the sum of all of the values in the 2D array
    *Use a nested loop instead of a helper method*/
   public static int arr2DSum(int[][]nums){
-    return 0;
+    int count = 0;
+    for (int i = 0; i < nums.length; i++)
+    {
+        for (int x = 0; x < nums[i].length; x++)
+        {
+            count += nums[i][x];
+        }
+    }
+    return count;
   }
 
   //3. Modify a given 2D array of integer as follows:
