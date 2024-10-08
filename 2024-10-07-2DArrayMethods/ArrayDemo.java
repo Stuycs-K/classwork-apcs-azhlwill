@@ -1,6 +1,9 @@
 import java.util.Arrays;
 public class ArrayDemo{
   public static void main(String[]args){
+    int[] test1 = new int[] {1,2,3,4,5,6};
+
+    System.out.println(Arrays.toString(test1).equals(arrToString(test1)));
     //write your tests here!
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
@@ -10,7 +13,21 @@ public class ArrayDemo{
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
   public static String arrToString(int[]ary){
-    return "";
+    String empty = "[";
+
+	for (int i = 0; i < ary.length; i++)
+	{
+        if (i == ary.length - 1) // if last index
+        {
+            empty = empty + ary[i]; // dont put the comma space
+        }
+        else
+        {
+            empty = empty + (ary[i] + ", ");
+        }
+	}
+
+	return empty + "]"; // close the string with a bracket
   }
 
   //The name of different methods can be the same,
