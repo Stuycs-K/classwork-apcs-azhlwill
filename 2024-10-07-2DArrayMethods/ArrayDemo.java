@@ -8,6 +8,8 @@ public class ArrayDemo{
     int[][] test5 = new int[][] {{1,2,3}, {1,2,3}};
     int[][] test6 = new int[][] {{-1,-1,-3}, {-5, -5, -1}};
     int[][] test7 = new int[][] {{-1,-1,-3}, {5, 5, -1}, {-1, -1, -1}, {-1, -1, -1, -2}};
+    int[][] test8 = new int[4][4];
+    int[][] test9 = new int[][] {{1,2}, {7,8}, {123,456}};
 
 
     System.out.println(Arrays.toString(test1).equals(arrToString(test1)));
@@ -19,6 +21,8 @@ public class ArrayDemo{
     System.out.println(arr2DSum(test5)); // 12
     System.out.println(arrToString(replaceNegative(test6)));
     System.out.println(arrToString(replaceNegative(test7)));
+    System.out.println(arrToString(copy(test8)));
+    System.out.println(arrToString(copy(test9)));
 
 
 
@@ -123,9 +127,29 @@ public class ArrayDemo{
   //DO NOT use any built in methods that "copy" an array.
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
-  public static int[][] copy(int[][] nums){
-    return new int[1][1];
+  public static int[][] copy(int[][] nums) {
+    int[][] copyArray = new int[nums.length][];
+
+    for (int i = 0; i < nums.length; i++) 
+    {
+      copyArray[i] = copyHelper(nums[i]); // copy the 1d  into the 2d 
+    }
+
+    return copyArray; 
   }
+// helper for 1-dim array
+  public static int[] copyHelper(int[] oneDimAry) { // use int[] since you give it a 1d array
+
+    int[] oneDimAryCopy = new int[oneDimAry.length];
+
+    for (int i = 0; i < oneDimAry.length; i++) 
+    {
+      oneDimAryCopy[i] = oneDimAry[i];
+    }
+
+    return oneDimAry; 
+  }
+
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
   //   You may assume the array is rectangular and neither rows nor cols is 0.
