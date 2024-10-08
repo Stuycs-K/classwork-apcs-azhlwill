@@ -12,6 +12,8 @@ public class ArrayDemo{
     int[][] test9 = new int[][] {{1,2}, {7,8}, {123,456}};
     int[][] test10 = new int[][] {{1,1,1}, {2,2,2}, {3,3,3}};
     int[][] test11 = new int[][] {{1,2,3}, {4,5,6}};
+    int[][] test12 = new int[][] {{1,2}, {3}};
+    int[][] test13 = new int[1][2];
 
 
     System.out.println(Arrays.toString(test1).equals(arrToString(test1)));
@@ -27,7 +29,8 @@ public class ArrayDemo{
     System.out.println(arrToString(copy(test9)));
     System.out.println(arrToString(swapRC(test10)));
     System.out.println(arrToString(swapRC(test11)));
-
+    System.out.println(htmlTable(test12));
+    System.out.println(htmlTable(test13));
 
 
     //write your tests here!
@@ -178,6 +181,28 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String empty = "<table>";
+    String part1 = "<tr>";
+    String part2 = "</tr>";
+    String part3 = "<td>";
+    String part4 = "</td>";
+
+    for (int i = 0; i < nums.length; i++)
+    {
+      empty = empty + part1;
+      for (int x = 0; x < nums[i].length; x++)
+      {
+        empty = empty + part3 + nums[i][x] + part4;
+      }
+      empty = empty + part2;
+    }
+
+    return empty + "</table>";
   }
 }
+
+// <table>
+// <tr> (start of array)
+// <td>_</td> (for each thing in array)
+// </tr> (end of array)
+// </table> 
