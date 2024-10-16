@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class Point{
   private double x,y;
 
@@ -18,9 +19,11 @@ public class Point{
     this.x=x;
     this.y=y;
   }
+
   public double getX(){
     return x;
   }
+
   public double getY(){
     return y;
   }
@@ -29,7 +32,7 @@ public class Point{
   Write this method FOURTH, go to the main and do that one first.
   */
   public double distanceTo(Point other){
-    return 0.0;
+    return Math.sqrt(Math.pow((other.x - this.x), 2) + Math.pow((other.y - this.y), 2));
   }
 
   /*
