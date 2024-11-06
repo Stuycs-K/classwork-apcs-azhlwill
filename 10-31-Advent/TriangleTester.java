@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TriangleTester {
 
   public static void main(String[] args) {
-      System.out.println("Valid triangles: " + countTrianglesA("inputTri.txt"));
+      System.out.println(countTrianglesA("inputTri.txt"));
     }
 
   public static boolean checkTriangle(int sideA, int sideB, int sideC){
