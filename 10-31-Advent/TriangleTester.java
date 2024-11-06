@@ -5,24 +5,38 @@ import java.util.Scanner;
 public class TriangleTester {
 
   public static void main(String[] args) {
-      countTrianglesA("inputTri.txt");
+      System.out.println("Valid triangles: " + countTrianglesA("inputTri.txt"));
     }
+
+  public static boolean checkTriangle(int sideA, int sideB, int sideC){
+    return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA);
+
+  }
 
   public static int countTrianglesA(String filename){
-    File file = new File(filename);//1
+    File inputFile = new File(filename);//1
+    int sideA, sideB, sideC;
+    int validTriangles = 0;
+
     try {
-      Scanner input = new Scanner(file);
+      Scanner input = new Scanner(inputFile); //scan it
+// loop
       while(input.hasNext()){
-        System.out.println(input.next());
+        sideA = Integer.parseInt(input.next());
+        sideB = Integer.parseInt(input.next());
+        sideC = Integer.parseInt(input.next());
+        
+        if (checkTriangle(sideA, sideB, sideC)){
+          validTriangles++;
+        }
       }
       input.close();
+// catch
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
-
-    return 0;
     }
 
-  return 0;
+    return validTriangles;
   }
 
 }
