@@ -1,6 +1,9 @@
-// Overriding the getName() method changed the name to "The Mighty " + getName().
-// This shows that methods that are overridden use a new version of the method from the superclass.
-
+/* 
+Overriding the getName() method changed the name to "The Mighty " + getName(). This shows that methods that are overridden use a new version of the method from the superclass.
+*/
+/*
+Test 3 doesn't work because the animal is not a bird. Bird is a subclass of animal which is why the 4th test works. Bird is-A Animal, but Animal is not a Bird.
+*/
 public class Driver{
   public static void main(String[] args) {
     Animal a = new Animal("helloo", 20, "Bob");
