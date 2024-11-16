@@ -25,7 +25,6 @@ public class ArrayListPractice{
         original.set(i, "Empty");
       }
     }
-    System.out.println(original);
   }
 
   public static ArrayList<String> makeReversedList( ArrayList<String> original){
@@ -36,4 +35,33 @@ public class ArrayListPractice{
     }
     return returnArray;
   }
+
+  public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
+  //return a new ArrayList that has all values of a and b in alternating order that is:
+  //a[0], b[0], a[1], b[1]...
+  //If one list is longer than the other, just attach the remaining values to the end.
+    
+    ArrayList<String> returnArray = new ArrayList<>(a.size() + b.size());
+    int smallerSize = Math.min(a.size(), b.size());
+
+    for (int i = 0; i < smallerSize; i++) {
+        returnArray.add(a.get(i));
+        returnArray.add(b.get(i));
+    }
+
+    // add rest starting from smallerSize since thats the end of the short list
+    if (a.size() > b.size()) {
+        for (int i = smallerSize; i < a.size(); i++) {
+            returnArray.add(a.get(i));
+        }
+    } else if (b.size() > a.size()) {
+        for (int i = smallerSize; i < b.size(); i++) {
+            returnArray.add(b.get(i));
+        }
+    }
+
+    return returnArray;
+
+
+  } 
 }
