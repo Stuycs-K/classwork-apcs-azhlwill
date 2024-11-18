@@ -9,32 +9,50 @@ public class Solution {
 
   public static int solved(String filename){
     int distance = 0;
-
+    String[] compassDirections = {"N", "E", "S", "W"};
+    int currentDirection = 0;
+    int xCor = 0;
+    int yCor = 0;
 
     try {
-      File file = new File("input.txt");//1
+      File file = new File("input.txt");
       Scanner input = new Scanner(file);
 
       while (input.hasNext()){
-        distance++;
-        input.next();
+        String letterNumber = input.next();
+        int lineLength = (letterNumber).length() - 1;
+        int grids = Integer.parseInt(letterNumber.substring(1, lineLength));
+        
+        if (letterNumber.contains("R")){
+          currentDirection = (currentDirection + 1) % 4;
+        }
+        if (letterNumber.contains("L")){
+          currentDirection = (currentDirection + 3) % 4;
+        }
+
+        String direction = compassDirections[currentDirection];
+        if (direction.equals("N")){
+          yCor += grids;
+        }
+        else if (direction.equals("S")){
+          yCor -= grids;
+        }
+        else if (direction.equals("E")){
+          xCor += grids;
+        }
+        else{
+          xCor -= grids;
+        }
+
+    
       }
 
-
-
-      input.close();//releases the file from your progra
-
-
-
-
-
-
+      input.close();
 
 
     } catch (FileNotFoundException ex) {
-      //File not found what should you do?
       System.out.println("File not found");
     }
-    return distance;
+    return Math.abs(xCor) + Math.abs(yCor);
   }
 }
