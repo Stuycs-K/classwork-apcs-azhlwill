@@ -36,32 +36,13 @@ public class ArrayListPractice{
     return returnArray;
   }
 
-  public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
-  //return a new ArrayList that has all values of a and b in alternating order that is:
-  //a[0], b[0], a[1], b[1]...
-  //If one list is longer than the other, just attach the remaining values to the end.
-    
+  public static ArrayList<String> mixLists(ArrayList<String> a, ArrayList<String> b) {
     ArrayList<String> returnArray = new ArrayList<>(a.size() + b.size());
-    int smallerSize = Math.min(a.size(), b.size());
-
-    for (int i = 0; i < smallerSize; i++) {
-        returnArray.add(a.get(i));
-        returnArray.add(b.get(i));
-    }
-
-    // add rest starting from smallerSize since thats the end of the short list
-    if (a.size() > b.size()) {
-        for (int i = smallerSize; i < a.size(); i++) {
-            returnArray.add(a.get(i));
-        }
-    } else if (b.size() > a.size()) {
-        for (int i = smallerSize; i < b.size(); i++) {
-            returnArray.add(b.get(i));
-        }
-    }
-
+    for (int i = 0; i < Math.max(a.size(), b.size()); i++) {
+      if (i < a.size()) {returnArray.add(a.get(i));}
+      if (i < b.size()) {returnArray.add(b.get(i));}
+    } // only adds when its in bounds
     return returnArray;
-
-
-  } 
+  }
 }
+
