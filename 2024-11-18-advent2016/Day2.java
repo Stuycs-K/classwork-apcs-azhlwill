@@ -26,7 +26,42 @@ public class Day2{
 
         for (int i = 0; i < instructions.length(); i++){
           char single = instructions.charAt(i);
-          System.out.println(single);
+          if (single.equals('U')){
+            if (xCor == 0){
+              xCor = 0;
+            }
+            else{
+              xCor++;
+            }
+          }
+
+          if (single.equals('D')){
+            if (xCor == 2){
+              xCor = 2;
+            }
+            else{
+              xCor--;
+            }
+          }
+
+          if (single.equals('L')){
+            if (yCor == 0){
+              yCor = 0;
+            }
+            else{
+              yCor--;
+            }
+          }
+
+          if (single.equals('R')){
+            if (yCor == 2){
+              yCor = 2;
+            }
+            else{
+              yCor++;
+            }
+          }
+
         }
 
       }
