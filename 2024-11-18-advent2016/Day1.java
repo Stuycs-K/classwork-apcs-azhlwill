@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Day1 {
   public static void main(String[] args) {
@@ -18,14 +19,15 @@ public class Day1 {
       File file = new File("input.txt");
       Scanner input = new Scanner(file);
 
+
+      ArrayList<String> locationList = new ArrayList<String>();
+
       while (input.hasNext()){
         String letterNumber = input.next();
 
         String grids = letterNumber.substring(1, letterNumber.length() -1 );
 
         int amt = Integer.parseInt(grids);
-
-
 
         if (letterNumber.contains("R")){
           currentDirection = (currentDirection + 1) % 4;
@@ -35,19 +37,33 @@ public class Day1 {
         }
 
         String direction = compassDirections[currentDirection];
-        if (direction.equals("N")){
-          yCor += amt;
-        }
-        else if (direction.equals("S")){
-          yCor -= amt;
-        }
-        else if (direction.equals("E")){
-          xCor += amt;
-        }
-        else{
-          xCor -= amt;
-        }
+        
+        for (int i = 0; i < amt; i++){
+          if (direction.equals("N")){
+            yCor += 1;
+          }
+          else if (direction.equals("S")){
+            yCor -= 1;
+          }
+          else if (direction.equals("E")){
+            xCor += 1;
+          }
+          else{
+            xCor -= 1;
+          }
 
+          String location = xCor + "," + yCor;
+          if (locationList.contains(location)){
+            System.out.println(location);
+          }
+          else{
+            locationList.add(location);
+          }
+
+        }
+        
+
+    
 
       }
 
