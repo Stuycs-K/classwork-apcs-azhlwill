@@ -10,88 +10,52 @@ public class Day2{
 
   public static int solve(String filename){
 
-    int[][] keypad = new int[][] {{1,2,3}, {4,5,6}, {7,8,9}};
-
+    int[][] keypad = new int[][] {{0,0,1,0,0}, {0,2,3,4,0}, {5,6,7,8,9}, {0,100,101,102,0}, {0,0,103,0,0}};
 
     try{
       File file = new File("Day2Input.txt");
       Scanner input = new Scanner(file);
 
       while (input.hasNextLine()){
-        int xCor = 1;
-        int yCor = 1;
+        int xCor = 2;
+        int yCor = 0;
+
 
         String instructions = input.nextLine();
         System.out.println(instructions + "\n");
 
-        System.out.println(keypad[xCor][yCor]);
 
         for (int i = 0; i <instructions.length(); i++){
           char single = instructions.charAt(i);
+
           if (single == 'U'){
-            if (xCor != 0){xCor--;}
+            int tempXU = xCor - 1;
+            if (xCor != 0){
+              if (keypad[tempXU][yCor] != 0){xCor--;}
+            }
           }
+
           else if (single == 'D'){
-            if (xCor != 2){xCor++;}
+            int tempXD = xCor + 1;
+            if (xCor != 4){
+              if (keypad[tempXD][yCor] != 0){xCor++;}
+            }
           }
+
           else if (single == 'L'){
-            if (yCor != 0){yCor--;}
+            int tempYL = yCor - 1;
+            if (yCor != 0){
+              if (keypad[xCor][tempYL] != 0){yCor--;}
+            }
           }
+
           else{
-            if (yCor != 2){yCor++;}
-          }
+            int tempYR = yCor + 1;
+            if (yCor != 4){
+              if (keypad[xCor][tempYR] != 0){yCor++;}
+            }          }
         }
-
         System.out.println(keypad[xCor][yCor]);
-/*
-        for (int i = 0; i < instructions.length(); i++){
-          char single = instructions.charAt(i);
-          if (single == 'U'){
-            if (xCor == 0){
-              xCor = 0;
-              System.out.println(keypad[xCor][yCor]);
-            }
-            else{
-              xCor++;
-              System.out.println(keypad[xCor][yCor]);
-            }
-          }
-
-          if (single == 'D'){
-            if (xCor == 2){
-              xCor = 2;
-              System.out.println(keypad[xCor][yCor]);
-            }
-            else{
-              xCor--;
-              System.out.println(keypad[xCor][yCor]);
-            }
-          }
-
-          if (single == 'L'){
-            if (yCor == 0){
-              yCor = 0;
-              System.out.println(keypad[xCor][yCor]);
-            }
-            else{
-              yCor--;
-              System.out.println(keypad[xCor][yCor]);
-            }
-          }
-
-          if (single == 'R'){
-            if (yCor == 2){
-              yCor = 2;
-              System.out.println(keypad[xCor][yCor]);
-            }
-            else{
-              yCor++;
-              System.out.println(keypad[xCor][yCor]);
-            }
-          }
-        }
-*/
-
       }
 
       input.close();
@@ -99,8 +63,6 @@ public class Day2{
     catch (FileNotFoundException e){
       return -1;
     }
-
-
     return 1;
   }
 
