@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.io.*; 
+import java.util.*; 
 
 public class Day4{
     public static void main(String[] args){
@@ -12,8 +14,28 @@ public class Day4{
         try {
             File file = new File(filename);
             Scanner input = new Scanner(file);
-        //////////////
-            System.out.println("hello");
+            int sectorSum = 0;
+        //////////////setup
+            String[] alphabet = new String[]{"0th", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+        /// 
+            while (input.hasNextLine()){
+                int[] counts = new int[27];
+
+                String look = input.nextLine();
+                for (int i = 0; i < look.length() - 6; i++){ // 
+                    for (int j = 0; j < alphabet.length; j++){
+                        if (look.substring(i,i+1).equals(alphabet[j])){
+                            int beforeAdd = counts[j];
+                            counts[j] = beforeAdd + 1;
+                        }
+                    }
+                }
+
+                System.out.println(Arrays.toString(counts));
+
+                ////////
+            }
+        ////////////// 
 
             input.close();
         } catch (FileNotFoundException e){
