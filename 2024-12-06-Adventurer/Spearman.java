@@ -64,7 +64,7 @@ public class Spearman extends Adventurer{
             return getName() + " uses special attack " + getSpecialName() + " on " + other.getName() + ", dealing " + damageAmt + " damage.";
         }
         else{
-            return getName() + " does not have enough energy for " + getSpecialName();
+            return getName() + " tries to use " + getSpecialName() + " on " + other.getName() + ", but does not have enough energy.";
         }
         
     }

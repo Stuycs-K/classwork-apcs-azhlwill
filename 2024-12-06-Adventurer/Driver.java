@@ -18,12 +18,12 @@ public class Driver{
         System.out.println("\n" + p2.getName() + " now has " + p2.getHP() + " HP.");
         System.out.println(p1.getName() + " now has " + p1.getHP() + " HP.");
 
-        System.out.println("\nSpecial attack");
+        System.out.println("\nSpecial attack:");
+        p1.setSpecial(0);
         System.out.println(p1.specialAttack(p2));
         System.out.println(p1.getName() + " now has " + p1.getSpecial() + " energy left.");
-        System.out.println(p2.getName() + " now has " + p2.getHP() + " HP.");
         System.out.println(p2.specialAttack(p1));
-        System.out.println(p2.getName() + " now has " + p2.getSpecial() + " energy left.");
+        System.out.println(p2.getName() + " has " + p2.getSpecial() + " energy left.");
         System.out.println(p1.getName() + " now has " + p1.getHP() + " HP.");
         System.out.println(p1.getName() + " is DEAD!");
 
