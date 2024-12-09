@@ -16,7 +16,7 @@ class Game {
       System.out.println("running game");
 
       System.out.println("Current Stats:");
-      System.out.println(p1.getName() + "\n     HP: " + p1.getHP() + "/" + p1.getmaxHP() + "\n     " + p1.getSpecialName() + p1.getSpecial() + "/" + p1.getSpecialMax());
+      System.out.println(p1.getName() + "\n     HP: " + p1.getHP() + "/" + p1.getmaxHP() + "\n     " + p1.getSpecialName() + ": " + p1.getSpecial() + "/" + p1.getSpecialMax());
 
       System.out.println("Would you like to continue? y/n");
       runGame = userInput.nextLine();

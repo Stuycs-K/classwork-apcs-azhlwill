@@ -9,7 +9,7 @@ public class Spearman extends Adventurer{
     }
 
     public String getSpecialName(){
-        return "Pierce Stab";
+        return "Energy";
     }
 
     public int getSpecial(){
@@ -66,7 +66,6 @@ public class Spearman extends Adventurer{
         else{
             return getName() + " tries to use " + getSpecialName() + " on " + other.getName() + ", but does not have enough energy.";
         }
-        
+
     }
 }
-
