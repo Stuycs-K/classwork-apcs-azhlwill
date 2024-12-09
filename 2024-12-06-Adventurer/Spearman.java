@@ -1,11 +1,11 @@
 public class Spearman extends Adventurer{
-    private int special;
-    private int specialMax;
+    private int energy;
+    private int energyMax;
 
     public Spearman(String name, int hp){
         super(name,hp);
-        special = 6;
-        specialMax = 10;
+        energy = 6;
+        energyMax = 10;
     }
 
     public String getSpecialName(){
@@ -13,23 +13,23 @@ public class Spearman extends Adventurer{
     }
 
     public int getSpecial(){
-        return special;
+        return energy;
     }
 
     public void setSpecial(int n){
         if (n < 0){
-            special = 0;
+            energy = 0;
         }
-        else if (n > specialMax){
-            special = specialMax;
+        else if (n > energyMax){
+            energy = energyMax;
         }
         else{
-            special = n;
+            energy = n;
         }
     }
 
     public int getSpecialMax(){
-        return specialMax;
+        return energyMax;
     }
 
     public String attack(Adventurer other){
@@ -57,10 +57,10 @@ public class Spearman extends Adventurer{
     }
 
     public String specialAttack(Adventurer other){
-        if (special >= 3){
+        if (energy >= 3){
             int damageAmt = 8;
             other.applyDamage(damageAmt);
-            special -= 3;
+            energy -= 3;
             return getName() + " uses special attack " + getSpecialName() + " on " + other.getName() + ", dealing " + damageAmt + " damage.";
         }
         else{
