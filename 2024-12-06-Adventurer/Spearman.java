@@ -34,8 +34,9 @@ public class Spearman extends Adventurer{
 
     public String attack(Adventurer other){
         int damageAmt = 5;
+        setSpecial(getSpecial() + 1);
         other.applyDamage(damageAmt);
-        return getName() + " stabs " + other.getName() + " with a spear, dealing " + damageAmt + " damage.";
+        return getName() + " stabs " + other.getName() + " with a spear, dealing " + damageAmt + " damage while restoring 1 energy.";
     }
 
     public String support(Adventurer other){
@@ -49,11 +50,12 @@ public class Spearman extends Adventurer{
 
     public String support(){
         int healAmt = 4;
+        setSpecial(getSpecial() + 2);
         if (getHP() + healAmt > getmaxHP()){
             healAmt = getmaxHP() - getHP();
         }
         setHP(getHP() + healAmt);
-        return getName() + " heals themselves for " + healAmt + " HP.";
+        return getName() + " heals themselves for " + healAmt + " HP and restores 2 energy.";
     }
 
     public String specialAttack(Adventurer other){
